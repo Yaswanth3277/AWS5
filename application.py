@@ -15,26 +15,47 @@ def search_word():
     word2 = []
     word3 = []
     word4 = []
-    with open('static/AliceCleaneredit.txt', 'r', encoding="utf-8-sig") as fileinput:
-        for line in fileinput:
-            for words in line.split():
-                word1.append(words)
+    files = []
 
-    with open('static/AliceInWonderlandedit.txt', 'r', encoding="utf-8-sig") as fileinput:
-        for line in fileinput:
-            for words in line.split():
-                word2.append(words)
+    if request.method == 'POST':
+        query_word = request.form.get('words')
+        with open('static/AliceCleaneredit.txt', 'r') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    word1.append(words)
 
-    with open('static/CandideEnedit.txt', 'r', encoding="utf-8-sig") as fileinput:
-        for line in fileinput:
-            for words in line.split():
-                word3.append(words)
+        if query_word in word1:
+            movie_title1 = "AliceCleaneredit.txt"
+            files.append(movie_title1)
 
-    with open('static/CandideFredit.txt', 'r', encoding="utf-8-sig") as fileinput:
-        for line in fileinput:
-            for words in line.split():
-                word4.append(words)
-    return render_template("search_word.html", word1 = word1, word2 = word2, word3 = word3, word4 = word4)
+        with open('static/AliceInWonderlandedit.txt', 'r') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    word2.append(words)
+
+        if query_word in word2:
+            movie_title2 = "AliceInWonderlandedit.txt"
+            files.append(movie_title2)
+
+        with open('static/CandideEnedit.txt', 'r') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    word3.append(words)
+
+        if query_word in word3:
+            movie_title3 = "CandideEnedit.txt"
+            files.append(movie_title3)
+
+        with open('static/CandideFredit.txt', 'r') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    word4.append(words)
+
+        if query_word in word4:
+            movie_title4 = "CandideFredit.txt"
+            files.append(movie_title4)
+
+    return render_template("search_word.html", file = files)
 
 
 if __name__ == '__main__':

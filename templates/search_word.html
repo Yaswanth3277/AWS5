@@ -10,8 +10,9 @@
 </div>
 <div>
     <p>
-        {% for values in word1 %}
-            {{values}}
+        Word found in the following files<br><br>
+        {% for values in file %}
+            {{values}}<br><br>
         {% endfor %}
     </p>
 </div>
