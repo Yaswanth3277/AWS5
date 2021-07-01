@@ -7,6 +7,14 @@
 <div style="text-align: center">
     <h1>Yaswanth Janardhan Konduru</h1>
     <h3>1001741845</h3>
+    <h3>Hello</h3>
+</div>
+<div>
+    <form action="{{url_for('search_word')}}" enctype=multipart/form-data method="POST" style="width:30%;">
+        <label for="words">Enter a word to search the books</label>
+        <input type="text" id="words" name="words">
+        <a href="/searchword"><input type="submit" value="Find"></a>
+    </form>
 </div>
 </body>
 </html>
