@@ -29,16 +29,17 @@ def search_word():
     if request.method == 'POST':
         query_word = request.form.get('words')
 
-        with open(words1, 'r') as fileinput:
+        with open(words1, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word1.append(words)
+        print(word1)
 
         if query_word in word1:
             movie_title1 = "AliceCleaneredit.txt"
             files.append(movie_title1)
 
-        with open(words2, 'r') as fileinput:
+        with open(words2, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word2.append(words)
@@ -47,7 +48,7 @@ def search_word():
             movie_title2 = "AliceInWonderlandedit.txt"
             files.append(movie_title2)
 
-        with open(words3, 'r') as fileinput:
+        with open(words3, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word3.append(words)
@@ -56,7 +57,7 @@ def search_word():
             movie_title3 = "CandideEnedit.txt"
             files.append(movie_title3)
 
-        with open(words4, 'r') as fileinput:
+        with open(words4, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word4.append(words)
