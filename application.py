@@ -1,7 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
+import os
 
 
 application = Flask(__name__)
+
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+words1 = os.path.join(basedir, 'static/AliceCleaneredit.txt')
+words2 = os.path.join(basedir, 'static/AliceInWonderlandedit.txt')
+words3 = os.path.join(basedir, 'static/CandideEnedit.txt')
+words4 = os.path.join(basedir, 'static/CandideFredit.txt')
 
 
 @application.route('/', methods=['GET', 'POST'])
@@ -19,7 +27,8 @@ def search_word():
 
     if request.method == 'POST':
         query_word = request.form.get('words')
-        with open('static/AliceCleaneredit.txt', 'r') as fileinput:
+
+        with open(words1, 'r') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word1.append(words)
@@ -28,7 +37,7 @@ def search_word():
             movie_title1 = "AliceCleaneredit.txt"
             files.append(movie_title1)
 
-        with open('static/AliceInWonderlandedit.txt', 'r') as fileinput:
+        with open(words2, 'r') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word2.append(words)
@@ -37,7 +46,7 @@ def search_word():
             movie_title2 = "AliceInWonderlandedit.txt"
             files.append(movie_title2)
 
-        with open('static/CandideEnedit.txt', 'r') as fileinput:
+        with open(words3, 'r') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word3.append(words)
@@ -46,7 +55,7 @@ def search_word():
             movie_title3 = "CandideEnedit.txt"
             files.append(movie_title3)
 
-        with open('static/CandideFredit.txt', 'r') as fileinput:
+        with open(words4, 'r') as fileinput:
             for line in fileinput:
                 for words in line.split():
                     word4.append(words)
