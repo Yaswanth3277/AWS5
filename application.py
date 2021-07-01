@@ -14,6 +14,7 @@ words4 = os.path.join(basedir, 'static/CandideFredit.txt')
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
+    print("hello there")
     return render_template('index.html')
 
 
