@@ -49,7 +49,7 @@ def search_word():
         with open(words2, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    word2.append(words)
+                    word2.append(str(words))
 
         for values in word2:
             wordss2.append(values[2:-1])
@@ -63,7 +63,7 @@ def search_word():
         with open(words3, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    word3.append(words)
+                    word3.append(str(words))
 
         for values in word3:
             wordss3.append(values[2:-1])
@@ -77,7 +77,7 @@ def search_word():
         with open(words4, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    word4.append(words)
+                    word4.append(str(words))
 
         for values in word4:
             wordss4.append(values[2:-1])
