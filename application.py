@@ -25,10 +25,24 @@ def search_word():
     word3 = []
     word4 = []
     files = []
+    line_num = []
     wordss1 = []
     wordss2 = []
     wordss3 = []
     wordss4 = []
+    count1 = 0
+    count2 = 0
+    count3 = 0
+    count4 = 0
+    count5 = 0
+    count6 = 0
+
+    counts1 = 0
+    counts2 = 0
+    counts3 = 0
+    counts4 = 0
+    counts5 = 0
+    counts6 = 0
 
     if request.method == 'POST':
         query_word = request.form.get('words')
@@ -46,6 +60,18 @@ def search_word():
             movie_title1 = "AliceCleaneredit.txt"
             files.append(movie_title1)
 
+            with open(words1, 'rb') as filesinput:
+                for line in filesinput:
+                        for words in line.split():
+                            print(words)
+                            if query_word == str(words)[2:-1]:
+                                counts1 = count1
+                                break
+                            else:
+                                count1 = count1 + 1
+                        break
+            line_num.append(counts1)
+
         with open(words2, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
@@ -59,6 +85,17 @@ def search_word():
         if query_word in wordss2:
             movie_title2 = "AliceInWonderlandedit.txt"
             files.append(movie_title2)
+
+            with open(words2, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts2 = count2
+                            break
+                        else:
+                            count2 = count2 + 1
+                    break
+                line_num.append(counts2)
 
         with open(words3, 'rb') as fileinput:
             for line in fileinput:
@@ -74,6 +111,17 @@ def search_word():
             movie_title3 = "CandideEnedit.txt"
             files.append(movie_title3)
 
+            with open(words3, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts3 = count3
+                            break
+                        else:
+                            count3 = count3 + 1
+                    break
+                line_num.append(counts3)
+
         with open(words4, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
@@ -88,7 +136,18 @@ def search_word():
             movie_title4 = "CandideFredit.txt"
             files.append(movie_title4)
 
-    return render_template("search_word.html", file = files)
+            with open(words4, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts4 = count4
+                            break
+                        else:
+                            count4 = count4 + 1
+                    break
+                line_num.append(counts4)
+
+    return render_template("search_word.html", file = files, lines = line_num)
 
 
 if __name__ == '__main__':
