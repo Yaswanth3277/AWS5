@@ -26,6 +26,7 @@ def search_word():
     word4 = []
     files = []
     line_num = []
+    line_data = []
     wordss1 = []
     wordss2 = []
     wordss3 = []
@@ -54,23 +55,24 @@ def search_word():
         for values in word1:
             wordss1.append(values[2:-1])
 
-        print(wordss1)
 
         if query_word in wordss1:
             movie_title1 = "AliceCleaneredit.txt"
             files.append(movie_title1)
 
-            with open(words1, 'rb') as filesinput:
+            with open(words1, 'r') as filesinput:
                 for line in filesinput:
                         for words in line.split():
                             print(words)
-                            if query_word == str(words)[2:-1]:
+                            if query_word == words:
                                 counts1 = count1
+                                linedata1 = line
                                 break
                             else:
                                 count1 = count1 + 1
                         break
             line_num.append(counts1)
+            print(linedata1)
 
         with open(words2, 'rb') as fileinput:
             for line in fileinput:
@@ -80,7 +82,6 @@ def search_word():
         for values in word2:
             wordss2.append(values[2:-1])
 
-        print(wordss2)
 
         if query_word in wordss2:
             movie_title2 = "AliceInWonderlandedit.txt"
@@ -105,7 +106,6 @@ def search_word():
         for values in word3:
             wordss3.append(values[2:-1])
 
-        print(wordss3)
 
         if query_word in wordss3:
             movie_title3 = "CandideEnedit.txt"
@@ -130,7 +130,6 @@ def search_word():
         for values in word4:
             wordss4.append(values[2:-1])
 
-        print(wordss4)
 
         if query_word in wordss4:
             movie_title4 = "CandideFredit.txt"
