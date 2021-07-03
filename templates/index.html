@@ -9,6 +9,14 @@
     <h3>1001741845</h3>
 </div>
 <div>
+    <form action="{{url_for('clean_data')}}" enctype=multipart/form-data method="POST" style="width:30%;">
+        <p>
+            Press the button to clean the files
+        </p>
+        <p>Note: Takes lots of time to execute as the files are 2MB and 5MB in size</p>
+        <a href="/cleandata"><input type="submit" value="Clean Text FIles"></a>
+    </form><br><br>
+
     <form action="{{url_for('search_word')}}" enctype=multipart/form-data method="POST" style="width:30%;">
         <label for="words">Enter a word to search the books</label>
         <input type="text" id="words" name="words">
