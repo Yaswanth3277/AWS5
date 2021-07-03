@@ -60,19 +60,16 @@ def search_word():
             movie_title1 = "AliceCleaneredit.txt"
             files.append(movie_title1)
 
-            with open(words1, 'r') as filesinput:
+            with open(words1, 'rb') as filesinput:
                 for line in filesinput:
-                        for words in line.split():
-                            print(words)
-                            if query_word == words:
-                                counts1 = count1
-                                linedata1 = line
-                                break
-                            else:
-                                count1 = count1 + 1
-                        break
-            line_num.append(counts1)
-            print(linedata1)
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts1 = count1
+                            break
+                        else:
+                            count1 = count1 + 1
+                    break
+                line_num.append(counts1)
 
         with open(words2, 'rb') as fileinput:
             for line in fileinput:
